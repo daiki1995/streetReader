@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+#gameContainer {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+
+#uiPanel {
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+#progressBarContainer {
+    background: #ddd;
+    border-radius: 10px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#progressBar {
+    background: linear-gradient(to right, #4CAF50, #8BC34A);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.1s;
+}
+
+#progressText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: #333;
+}
+
+#alertContainer {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.alert-safe {
+    background: #4CAF50;
+    color: white;
+}
+
+.alert-warning {
+    background: #FF9800;
+    color: white;
+    animation: pulse 0.5s infinite;
+}
+
+.alert-danger {
+    background: #F44336;
+    color: white;
+    animation: pulse 0.3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+#gameCanvas {
+    border: 3px solid #333;
+    border-radius: 5px;
+    display: block;
+}
+
+#instructions {
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+}
+
+#instructions p {
+    margin: 5px 0;
+}
+
+.key-hint {
+    background: #333;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+#gameOverScreen, #gameClearScreen, #stageClearScreen, #startScreen, #stageSelectScreen, #stageIntroScreen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+}
+
+#startScreen {
+    display: block;
+}
+
+#gameOverScreen h2 {
+    color: #F44336;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#gameClearScreen h2 {
+    color: #4CAF50;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#stageClearScreen h2 {
+    color: #2196F3;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#startScreen h2, #stageSelectScreen h2 {
+    color: #FFD700;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #1976D2;
+}

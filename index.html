@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道端でエ⚪︎本を読むゲーム</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>道端のエ⚪︎本を読むゲーム</h1>
+    
+    <div id="gameContainer">
+        <div id="uiPanel">
+            <div id="stageIndicator" style="text-align: center; font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px;">
+                ステージ 1
+            </div>
+            <div id="progressBarContainer">
+                <div id="progressBar"></div>
+                <div id="progressText">読破率: 0%</div>
+            </div>
+            <div id="alertContainer" class="alert-safe">安全</div>
+        </div>
+        
+        <div style="position: relative;">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div id="startScreen">
+                <h2>道端のエ⚪︎本を読むゲーム</h2>
+                <p style="margin: 20px 0;">通行人に見つからないように本を読破せよ！</p>
+                <button onclick="startGame()" style="font-size: 24px; padding: 15px 40px; margin: 10px;">ゲームスタート</button>
+                <button onclick="showStageSelect()" style="font-size: 18px; padding: 10px 30px; margin: 10px; background: #FF9800;">ステージセレクト</button>
+                <div style="margin-top: 30px; font-size: 14px; color: #AAA;">
+                    <p>操作方法:</p>
+                    <p>矢印キーまたはWASD: 移動</p>
+                    <p>スペース/クリック: 本を読む</p>
+                </div>
+            </div>
+            
+            <div id="stageSelectScreen">
+                <h2>ステージセレクト（デバッグ用）</h2>
+                <p style="margin: 20px 0;">プレイするステージを選択してください</p>
+                <button onclick="selectStage(1)" style="font-size: 20px; padding: 15px 40px; margin: 10px;">ステージ 1: 公園の道</button>
+                <button onclick="selectStage(2)" style="font-size: 20px; padding: 15px 40px; margin: 10px;">ステージ 2: 繁華街</button>
+                <button onclick="selectStage(3)" style="font-size: 20px; padding: 15px 40px; margin: 10px;">ステージ 3: 夜の繁華街</button>
+                <button onclick="selectStage(4)" style="font-size: 20px; padding: 15px 40px; margin: 10px;">ステージ 4: デスゲーム会場</button>
+                <button onclick="selectStage(5)" style="font-size: 20px; padding: 15px 40px; margin: 10px;">ステージ 5: 牢獄</button>
+                <button onclick="hideStageSelect()" style="font-size: 16px; padding: 10px 30px; margin-top: 20px; background: #666;">戻る</button>
+            </div>
+            
+            <div id="stageIntroScreen">
+                <p id="stageIntroMessage" style="font-size: 24px; color: #FFFFFF; line-height: 1.8;"></p>
+                <button onclick="startStageAfterIntro()" style="font-size: 20px; padding: 15px 40px; margin-top: 30px;">開始</button>
+            </div>
+            
+            <div id="gameOverScreen">
+                <h2>通報されました！</h2>
+                <p id="gameOverMessage"></p>
+                <button onclick="retryStage()">もう一度挑戦</button>
+                <button onclick="restartGame()" style="background: #666;">タイトルに戻る</button>
+            </div>
+            
+            <div id="gameClearScreen">
+                <h2>読破成功！</h2>
+                <p>おめでとうございます！全ステージをクリアしました！</p>
+                <button onclick="restartGame()">タイトルに戻る</button>
+            </div>
+            
+            <div id="stageClearScreen">
+                <h2>ステージクリア！</h2>
+                <p id="stageClearMessage"></p>
+                <button onclick="nextStage()">次のステージへ</button>
+                <button onclick="restartGame()" style="background: #666;">タイトルに戻る</button>
+            </div>
+        </div>
+        
+        <div id="instructions">
+            <p><span class="key-hint">←→↑↓</span> または <span class="key-hint">WASD</span>: 移動</p>
+            <p><span class="key-hint">マウスクリック</span> または <span class="key-hint">スペースキー</span> を長押し: 本を読む</p>
+            <p>通行人に見つからないように読破率100%を目指せ！</p>
+            <div>BGM:魔王魂</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
