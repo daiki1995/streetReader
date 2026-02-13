@@ -13,8 +13,10 @@ playBGM.volume = 0.5;
 // 効果音設定
 const missSE1 = new Audio('miss1.mp3');
 const missSE2 = new Audio('miss2.mp3');
+const successSE = new Audio('success.mp3');
 missSE1.volume = 0.7;
 missSE2.volume = 0.7;
+successSE.volume = 0.7;
 
 // ゲーム状態
 let gameState = {
@@ -766,6 +768,10 @@ function gameClear() {
     
     // playBGMを一時停止
     playBGM.pause();
+    
+    // 成功効果音を再生
+    successSE.currentTime = 0;
+    successSE.play().catch(e => console.log('効果音再生エラー:', e));
     
     if (gameState.currentStage < gameState.maxStage) {
         // ステージクリア
