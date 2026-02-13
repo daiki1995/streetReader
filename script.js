@@ -94,13 +94,13 @@ const NPC_TYPES = {
     },
     MANAGER: {
         speed: 5,
-        visionRange: 250,
+        visionRange: 200,
         color: '#000000',
         name: '管理人'
     },
     PARTICIPANT: {
         speed: 5,
-        visionRange: 250,
+        visionRange: 200,
         color: '#FF0000',
         name: '参加者'
     },
@@ -141,7 +141,7 @@ const STAGE_CONFIG = {
     },
     4: {
         npcTypes: ['MANAGER', 'PARTICIPANT'],
-        spawnInterval: 70,
+        spawnInterval: 90,
         requiredProgress: 100,
         name: 'デスゲーム会場',
         timeLimit: 300, // 5分
